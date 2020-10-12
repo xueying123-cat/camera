@@ -1,0 +1,54 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /camera
+config:
+#直播流保活时间(分钟)
+  keepalive: ${CAMERASERVER_KEEPALIVE:5}
+#nginx推送地址
+  push_host: ${CAMERASERVER_PUSH_HOST:127.0.0.1}
+#额外推送地址
+  host_extra: ${CAMERASERVER_HOST_EXTRA:127.0.0.1}
+#nginx推送端口
+  push_port: ${CAMERASERVER_PUSH_PORT:1935}
+#主码流最大码率
+  main_code: ${CAMERASERVER_MAIN_CODE:2048}
+#子码流最大码率
+  sub_code: ${CAMERASERVER_SUB_CODE:1024}
+#rtsp流
+  rtsp: rtsp://username:password@ip/id=channel
+#rtmp流
+  rtmp: rtmp://pushhost:pushport/live/test
+
+kedaconfig:
+#服务器IP地址
+  ip: 10.1.1.1
+#访问接口
+  path: http://ip:8765/svr_method.psp
+#服务器用户名
+  username: yctxuser
+#服务器密码
+  password: yctxuser123
+#本机IP
+  localip: 127.0.0.1
+#rtsp流
+  rtsp: rtsp://username:password@ip/id=channel
+#rtmp流
+  rtmp: rtmp://pushhost:pushport/live/test
+#nginx推送端口
+  push_port: ${CAMERASERVER_PUSH_PORT:1935}
+#nginx推送地址
+  push_host: ${CAMERASERVER_PUSH_HOST:127.0.0.1}
+
+
+spring:
+    servlet:
+      multipart:
+        # 上传文件总的最大值
+        max-request-size: 1000MB
+        # 单个文件的最大值
+        max-file-size: 200MB
+    aop:
+      auto: true
+
+
